@@ -1,0 +1,22 @@
+{
+    "name": "@rubisco/quasar-app-extension-qotpinput",
+    "version": "0.0.1",
+    "description": "A component for inputting one-time password.",
+    "author": "RUBisco0211 <1205456072@qq.com>",
+    "license": "MIT",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "echo \"No test specified\" && exit 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": "",
+    "homepage": "",
+    "engines": {
+        "node": ">= 12.2.0",
+        "npm": ">= 5.6.0",
+        "yarn": ">= 1.6.0"
+    }
+}
