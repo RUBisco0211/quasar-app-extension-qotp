@@ -1,17 +1,15 @@
 function extendConf(conf) {
     // register our boot file
-    conf.boot.push(
-        "~@rubisco/quasar-app-extension-qotpinput/src/boot/register.js"
-    );
+    conf.boot.push("~quasar-app-extension-qotp/src/boot/register.js");
 
     // make sure app extension files & ui package gets transpiled
     if (api.hasVite !== true) {
         conf.build.transpileDependencies.push(
-            /@rubisco\/quasar-app-extension-qotpinput[\\/]src/
+            /quasar-app-extension-qotp[\\/]src/
         );
     }
     // make sure the stylesheet goes through webpack to avoid SSR issues
-    conf.css.push("~quasar-ui-qotpinput/src/index.sass");
+    // conf.css.push("~quasar-ui-qotp/src/index.sass");
 }
 
 module.exports = function (api) {

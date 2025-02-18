@@ -5,7 +5,7 @@ The QOtpInput component is used for inputting one-time password.
 # Install
 
 ```bash
-quasar ext add qotpinput
+quasar ext add qotp
 ```
 
 Quasar CLI will retrieve it from the NPM registry and install the extension to your project.
@@ -13,7 +13,7 @@ Quasar CLI will retrieve it from the NPM registry and install the extension to y
 # Uninstall
 
 ```bash
-quasar ext remove qotpinput
+quasar ext remove qotp
 ```
 
 # Donate
