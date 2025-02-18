@@ -1,6 +1,6 @@
 {
     "name": "@rubisco0211/quasar-app-extension-qotp",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A quasar component for inputting one-time password.",
     "author": "RUBisco0211 <1205456072@qq.com>",
     "license": "MIT",

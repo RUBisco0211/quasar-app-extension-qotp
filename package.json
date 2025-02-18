@@ -1,0 +1,12 @@
+{
+    "name": "qotp",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "dev": "cd ./demo && quasar dev",
+        "build": "cd ./demo && quasar build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
