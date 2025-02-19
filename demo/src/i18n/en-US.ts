@@ -7,6 +7,7 @@ export default {
             inputLabel: "one-time password is here",
 
             subtitle1: "component behavior",
+            length: "OTP length",
             allowPaste: "allow paste",
             digitOnly: "use only digits",
             realTime: "emit the OTP on change or til it is completed",

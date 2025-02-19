@@ -1,6 +1,7 @@
 export const template = `<template>
     <q-otp-input v-bind="otpProps" v-model="otp"></q-otp-input>
-    <div class="q-mt-md row q-col-gutter-md">
+    <q-separator class="q-my-md"></q-separator>
+    <div class="row q-col-gutter-md">
         <div class="col-6">
             <q-input
                 readonly
@@ -13,6 +14,14 @@ export const template = `<template>
             <div class="text-h6 text-weight-regular">
                 {{ $t("example.content.subtitle1") }}
             </div>
+            <q-select
+                class="q-my-xs"
+                v-model="otpProps.length"
+                :options="lengthOptions"
+                outlined
+                options-dense
+                :label="$t('example.content.length')"
+            ></q-select>
             <q-toggle
                 v-model="otpProps.allowPaste"
                 icon="check"
@@ -43,8 +52,6 @@ export const template = `<template>
                 outlined
                 v-model="otpProps.colGutter"
                 :options="gutterOptions"
-                map-options
-                emit-value
                 options-dense
                 :label="$t('example.content.colGutter')"
             >
@@ -54,8 +61,6 @@ export const template = `<template>
                 outlined
                 v-model="inputStyle"
                 :options="styleOptions"
-                map-options
-                emit-value
                 options-dense
                 :label="$t('example.content.inputStyle')"
             ></q-select>
@@ -71,6 +76,7 @@ export const template = `<template>
 </template>`;
 
 export const script = `import { ref, watch } from "vue";
+
 const otp = ref("");
 
 const otpProps = ref<Record<string, any>>({
@@ -85,65 +91,24 @@ const otpProps = ref<Record<string, any>>({
     dense: false,
 });
 
-const gutterOptions = [
-    {
-        label: "none",
-        value: "none",
-    },
-    {
-        label: "xs",
-        value: "xs",
-    },
-    {
-        label: "sm",
-        value: "sm",
-    },
-    {
-        label: "md",
-        value: "md",
-    },
-    {
-        label: "lg",
-        value: "lg",
-    },
-    {
-        label: "xl",
-        value: "xl",
-    },
-];
+const lengthOptions = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+const gutterOptions = ["none", "xs", "sm", "md", "lg", "xl"];
 
 const inputStyle = ref("outlined");
-const styleOptions = [
-    {
-        label: "outlined",
-        value: "outlined",
-    },
-    {
-        label: "filled",
-        value: "filled",
-    },
-    {
-        label: "standout",
-        value: "standout",
-    },
-    {
-        label: "none",
-        value: "none",
-    },
-];
+const styleOptions = ["none", "outlined", "filled", "standout"];
 
 watch(inputStyle, (s) => {
     if (s === "none") {
         styleOptions.forEach((o) => {
-            otpProps.value[o.value] = false;
+            otpProps.value[o] = false;
         });
         return;
     }
     styleOptions.forEach((o) => {
-        if (o.value === s) {
+        if (o === s) {
             otpProps.value[s] = true;
         } else {
-            otpProps.value[o.value] = false;
+            otpProps.value[o] = false;
         }
     });
 });`;

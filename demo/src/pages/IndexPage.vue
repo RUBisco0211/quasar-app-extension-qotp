@@ -38,7 +38,7 @@
                         </q-tabs>
                         <q-tab-panels v-model="tab" animated>
                             <q-tab-panel
-                                class="q-pa-none q-ma-none overflow-auto"
+                                class="q-pa-md overflow-auto"
                                 name="template"
                                 v-hljs="{ lang: 'html' }"
                                 style="height: 500px"
@@ -48,7 +48,7 @@
                                 </pre>
                             </q-tab-panel>
                             <q-tab-panel
-                                class="q-pa-none q-ma-none overflow-auto"
+                                class="q-pa-md overflow-auto"
                                 name="script"
                                 v-hljs="{ lang: 'ts' }"
                                 style="height: 500px"
