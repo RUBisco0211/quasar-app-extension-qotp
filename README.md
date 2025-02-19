@@ -1,5 +1,7 @@
 # Quasar App Extension q-otp-input
 
+[中文文档](./README-zh-CN.md)
+
 The QOtpInput component is used for inputting one-time password.
 
 # Links

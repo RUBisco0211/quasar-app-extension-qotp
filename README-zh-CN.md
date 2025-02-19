@@ -1,33 +1,32 @@
 # Quasar App Extension q-otp-input
 
-The QOtpInput component is used for inputting one-time password.
+为使用 quasar-cli 的 vue 项目添加了组件 q-otp-input，用于实现对 one-time password (OTP) 验证码的输入。
 
-# Links
+# 链接
 
 [npm: @rubisco0211/quasar-app-extension-qotp](https://www.npmjs.com/package/@rubisco0211/quasar-app-extension-qotp)
 
 [demo](https://rubisco0211.github.io/quasar-app-extension-qotp/#/)
 
-# Install
+# 安装
 
 ```bash
 quasar ext add @rubisco0211/qotp
 ```
 
-Quasar CLI will retrieve it from the NPM registry and install the extension to your project.
-
-# Uninstall
+# 卸载
 
 ```bash
 quasar ext remove @rubisco0211/qotp
 ```
 
-# Usage
+# 使用例
 
 ```html
 <template>
     <q-otp-input v-bind="otpProps" v-model="otp"></q-otp-input>
 </template>
+
 <script setup lang="ts">
     import { ref } from "vue";
 
@@ -46,7 +45,3 @@ quasar ext remove @rubisco0211/qotp
     });
 </script>
 ```
-
-# Donate
-
-If you appreciate the work that went into this App Extension, please consider [donating to Quasar](https://donate.quasar.dev).
