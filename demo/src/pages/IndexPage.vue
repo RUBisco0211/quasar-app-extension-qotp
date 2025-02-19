@@ -1,42 +1,74 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+    <q-page padding>
+        <div class="row justify-center">
+            <div class="col-lg-4 col-12">
+                <q-card flat bordered>
+                    <q-card-section class="text-h6">
+                        {{ $t("example.header") }}
+                    </q-card-section>
+
+                    <q-separator></q-separator>
+                    <q-card-section>
+                        <basic-usage></basic-usage>
+                    </q-card-section>
+                    <q-separator></q-separator>
+                    <q-expansion-item>
+                        <template #header>
+                            <q-item-section>
+                                <q-item-label>{{
+                                    $t("example.expansion")
+                                }}</q-item-label>
+                            </q-item-section>
+                        </template>
+                        <q-tabs
+                            align="center"
+                            v-model="tab"
+                            active-color="primary"
+                        >
+                            <q-tab
+                                label="Template"
+                                name="template"
+                                no-caps
+                            ></q-tab>
+                            <q-tab
+                                label="Script setup"
+                                name="script"
+                                no-caps
+                            ></q-tab>
+                        </q-tabs>
+                        <q-tab-panels v-model="tab" animated>
+                            <q-tab-panel
+                                class="q-pa-none q-ma-none overflow-auto"
+                                name="template"
+                                v-hljs="{ lang: 'html' }"
+                                style="height: 500px"
+                            >
+                                <pre>
+                                    <code>{{ template }}</code>
+                                </pre>
+                            </q-tab-panel>
+                            <q-tab-panel
+                                class="q-pa-none q-ma-none overflow-auto"
+                                name="script"
+                                v-hljs="{ lang: 'ts' }"
+                                style="height: 500px"
+                            >
+                                <pre>
+                                    <code>{{ script }}</code>
+                                </pre>
+                            </q-tab-panel>
+                        </q-tab-panels>
+                    </q-expansion-item>
+                </q-card>
+            </div>
+        </div>
+    </q-page>
 </template>
 
 <script setup lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-import { ref } from 'vue';
+import BasicUsage from "src/examples/BasicUsage.vue";
+import { ref } from "vue";
+import { template, script } from "src/examples/BasicUsage.src";
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ct2'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
-]);
-const meta = ref<Meta>({
-  totalCount: 1200
-});
+const tab = ref("template");
 </script>

@@ -1,13 +1,14 @@
 {
     "name": "@rubisco0211/quasar-app-extension-qotp",
-    "version": "0.0.2",
+    "version": "0.0.6",
     "description": "A quasar component for inputting one-time password.",
     "author": "RUBisco0211 <1205456072@qq.com>",
     "license": "MIT",
     "private": false,
     "main": "src/index.js",
     "scripts": {
-        "test": "echo \"No test specified\" && exit 0"
+        "test": "echo \"No test specified\" && exit 0",
+        "publish": "npm publish --access=public"
     },
     "repository": {
         "type": "git",

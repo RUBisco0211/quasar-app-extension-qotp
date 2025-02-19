@@ -1,11 +1,11 @@
-# Quasar App Extension QOtpInput
+# Quasar App Extension q-otp-input
 
 The QOtpInput component is used for inputting one-time password.
 
 # Install
 
 ```bash
-quasar ext add @rubsico0211/qotp
+quasar ext add @rubisco0211/qotp
 ```
 
 Quasar CLI will retrieve it from the NPM registry and install the extension to your project.
@@ -13,7 +13,7 @@ Quasar CLI will retrieve it from the NPM registry and install the extension to y
 # Uninstall
 
 ```bash
-quasar ext remove @rubsico0211/qotp
+quasar ext remove @rubisco0211/qotp
 ```
 
 # Donate

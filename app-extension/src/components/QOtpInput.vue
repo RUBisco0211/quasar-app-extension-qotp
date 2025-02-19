@@ -1,6 +1,6 @@
 <!-- SFC version of QOtpInput.js -->
 <template>
-    <div class="row q-gutter-md">
+    <div class="row" :class="`q-col-gutter-${colGutter}`">
         <q-input
             :outlined
             :filled
@@ -37,6 +37,7 @@ const props = withDefaults(
         filled?: boolean;
         dense?: boolean;
         standout?: QInputProps["standout"];
+        colGutter: "none" | "xs" | "sm" | "md" | "lg" | "xl";
     }>(),
     {
         length: 6,
@@ -44,6 +45,7 @@ const props = withDefaults(
         allowPaste: true,
         modelValue: "",
         realTime: false,
+        colGutter: "sm",
     }
 );
 
@@ -51,6 +53,17 @@ const emits = defineEmits(["update:model-value"]);
 
 const inputValues = ref<string[]>(
     Array.from(props.modelValue.substring(0, props.length))
+);
+
+watch(
+    () => props.modelValue,
+    () => {
+        if (props.realTime) {
+            inputValues.value = Array.from(
+                props.modelValue.substring(0, props.length)
+            );
+        }
+    }
 );
 
 // onMounted(() => {

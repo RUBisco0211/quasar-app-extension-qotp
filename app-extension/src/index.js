@@ -1,11 +1,14 @@
-function extendConf(conf) {
+function extendConf(conf, api) {
     // register our boot file
-    conf.boot.push("~quasar-app-extension-qotp/src/boot/register.js");
+    conf.boot.push(
+        "~@rubisco0211/quasar-app-extension-qotp/src/boot/register.js"
+    );
 
     // make sure app extension files & ui package gets transpiled
+
     if (api.hasVite !== true) {
         conf.build.transpileDependencies.push(
-            /quasar-app-extension-qotp[\\/]src/
+            /@rubisco0211\/quasar-app-extension-qotp[\\/]src/
         );
     }
     // make sure the stylesheet goes through webpack to avoid SSR issues

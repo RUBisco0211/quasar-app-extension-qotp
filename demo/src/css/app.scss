@@ -1,1 +1,196 @@
 // app global css in SCSS form
+@import "variables.module";
+// quasar类自定义
+
+// 圆角
+.rounded-borders {
+    border-radius: $radius !important;
+}
+
+// 卡片
+.q-card--flat,
+.q-table--flat {
+    box-shadow: $shadow-common !important;
+    border-radius: $radius;
+}
+
+// 卡片内列表
+.q-card--flat > .q-list {
+    .q-item:first-child,
+    .q-expansion-item:first-child {
+        border-radius: $radius-vertical-first !important;
+    }
+    .q-item:last-child,
+    .q-expansion-item:last-child {
+        border-radius: $radius-vertical-last !important;
+    }
+}
+
+// 按钮
+.q-btn {
+    .q-icon.on-left,
+    .q-spinner.on-left,
+    .q-icon.on-right,
+    .q-spinner.on-left {
+        font-size: 1.5em;
+    }
+}
+.q-btn--rectangle {
+    border-radius: $radius !important;
+}
+
+.q-btn--rectangle:active {
+    // transform: scale($scale-click) !important;
+}
+.q-btn-dropdown {
+    .q-btn--rectangle:first-child {
+        border-radius: $radius-horizontal-first !important;
+        box-shadow: none !important;
+    }
+    .q-btn--rectangle:last-child {
+        border-radius: $radius-horizontal-last !important;
+        box-shadow: none !important;
+    }
+}
+.q-btn--rounded.q-btn--fab {
+    border-radius: $radius-lg !important;
+}
+
+// 上传器
+.q-uploader {
+    border-radius: $radius !important;
+    &--bordered {
+        border: solid 1px $grey-5 !important;
+    }
+}
+
+// 屏幕中心（默认）对话框
+.q-dialog-plugin.q-card {
+    border-radius: $radius !important;
+}
+
+// 菜单
+.q-menu {
+    border-radius: $radius !important;
+    box-shadow: $shadow-common !important;
+}
+
+// 输入框
+.q-field--outlined:not(.q-field--rounded) {
+    .q-field__control {
+        border-radius: $radius !important;
+    }
+}
+.q-field--outlined.q-field--highlighted {
+    .q-field__control::after {
+        border-width: 3px !important;
+    }
+}
+
+// 通知
+.q-notification {
+    border-radius: $radius !important;
+    box-shadow: $shadow-common !important;
+}
+
+// 消息
+.q-message-text--received {
+    border-radius: $radius $radius $radius 0px;
+}
+.q-message-text--sent {
+    border-radius: $radius $radius 0px $radius;
+}
+
+// tooltip
+.q-tooltip--style {
+    background-color: $dark;
+    font-size: 13px;
+}
+
+.q-time__header,
+.q-date__header {
+    border-radius: 0 !important;
+}
+
+// 时间轴副标题 取消强制大写
+.q-timeline__subtitle {
+    span {
+        text-transform: none !important;
+    }
+}
+
+// 编辑器
+.q-editor {
+    border: solid 1px $grey-5 !important;
+    background: rgba(0, 0, 0, 0);
+}
+
+// material3样式 toggle组件
+.q-toggle__inner {
+    padding: 0.11em 0.1em !important;
+    .q-toggle__track {
+        height: 0.8em !important;
+        border-radius: 0.4em !important;
+        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        // filter: brightness(0.6) !important;
+        // opacity:1 !important
+    }
+    .q-toggle__thumb {
+        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        top: 0.22em !important;
+        width: 0.56em !important;
+        height: 0.56em !important;
+        border-radius: 0.28em !important;
+        color: #fff !important;
+        box-shadow: none !important;
+        i {
+            color: $grey-8 !important;
+        }
+    }
+    .q-toggle__thumb::before {
+        display: none !important;
+    }
+}
+.q-toggle__inner:hover {
+    .q-toggle__track {
+        filter: brightness(0.7) !important;
+    }
+}
+.q-toggle__inner--falsy {
+    .q-toggle__thumb {
+        left: 0.22em !important;
+    }
+}
+.q-toggle__inner--truthy {
+    .q-toggle__thumb {
+        left: 0.64em !important;
+    }
+
+    // .q-toggle__track {
+    //     filter: brightness(0.7) !important;
+    // }
+}
+aside.q-drawer--mini {
+    .q-item {
+        padding-left: 0 !important;
+    }
+}
+aside.q-drawer--mini {
+    transition: all 0.2s ease !important;
+    * {
+        transition: all 0.2s ease !important;
+    }
+}
+
+pre {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+pre > code {
+    font-family: "Cascadia Code", "微软雅黑", "Consolas", monospace;
+    font-size: 16px;
+    margin: 0 !important;
+    background-color: transparent !important;
+}

@@ -1,0 +1,36 @@
+@import "quasar.variables";
+:export {
+    primary: $primary;
+    secondary: $secondary;
+    accent: $accent;
+
+    positive: $positive;
+    negative: $negative;
+    info: $info;
+    warning: $warning;
+
+    dark: $dark;
+    dark-page: $dark-page;
+    dark-active: $dark-active;
+    dark-text: $dark-text;
+
+    light: $light;
+    light-page: $light-page;
+    light-active: $light-active;
+    light-text: $light-text;
+
+    radius: $radius;
+    radius-lg: $radius-lg;
+    radius-horizontal-first: $radius-horizontal-first;
+    radius-horizontal-last: $radius-horizontal-last;
+    radius-vertical-first: $radius-vertical-first;
+    radius-vertical-last: $radius-vertical-last;
+
+    shadow-common: $shadow-common;
+    shadow-active: $shadow-active;
+
+    scale-click: $scale-click;
+    scale-hover: $scale-hover;
+
+    input-font-size: $input-font-size;
+}
