@@ -1,0 +1,1 @@
+import{j as s}from"./index.dbde024e.js";import{l as c}from"./index.00fa87a2.js";const i={hljs:(e,o)=>{const{value:{lang:t}}=o;e.querySelectorAll("pre code").forEach(r=>{r.classList.add(t),c.highlightBlock(r)})}};var h=s(({app:e})=>{Object.entries(i).forEach(([o,t])=>{e.directive(o,t)})});export{h as default};
