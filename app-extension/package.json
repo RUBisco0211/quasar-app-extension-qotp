@@ -1,6 +1,6 @@
 {
     "name": "@rubisco0211/quasar-app-extension-qotp",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "A quasar component for inputting one-time password.",
     "author": "RUBisco0211 <1205456072@qq.com>",
     "license": "MIT",
@@ -14,6 +14,7 @@
         "type": "git",
         "url": "git+https://github.com/RUBisco0211/quasar-app-extension-qotp.git"
     },
+    "homepage": "https://rubisco0211.github.io/quasar-app-extension-qotp/",
     "bugs": {
         "url": "https://github.com/RUBisco0211/quasar-app-extension-qotp/issues"
     },
