@@ -90,7 +90,7 @@ export default defineConfig((ctx) => {
                         });
                     },
                 }),
-                MarkdownPreview({}),
+                MarkdownPreview(),
                 [
                     "@intlify/unplugin-vue-i18n/vite",
                     {
