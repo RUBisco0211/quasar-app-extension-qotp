@@ -1,4 +1,4 @@
-# QOtp Demo (qotp-demo)
+# q-otp-input demo (demo)
 
 A Quasar Project
 

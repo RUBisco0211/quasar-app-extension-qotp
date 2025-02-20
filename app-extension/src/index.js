@@ -15,7 +15,7 @@ function extendConf(conf, api) {
     // conf.css.push("~quasar-ui-qotp/src/index.sass");
 }
 
-module.exports = function (api) {
+export default function (api) {
     // Quasar compatibility check; you may need
     // hard dependencies, as in a minimum version of the "quasar"
     // package or a minimum version of "@quasar/app-*" CLI
@@ -23,7 +23,7 @@ module.exports = function (api) {
     api.compatibleWith("quasar", "^2.*");
 
     if (api.hasVite) {
-        api.compatibleWith("@quasar/app-vite", "^1.0.0");
+        api.compatibleWith("@quasar/app-vite", "^2.0.0");
     } else if (api.hasWebpack) {
         api.compatibleWith("@quasar/app-webpack", "^3.4.0");
     }
@@ -33,4 +33,4 @@ module.exports = function (api) {
 
     // We extend /quasar.conf.js
     api.extendQuasarConf(extendConf);
-};
+}

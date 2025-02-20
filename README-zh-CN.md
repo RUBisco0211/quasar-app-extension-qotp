@@ -22,26 +22,35 @@ quasar ext remove @rubisco0211/qotp
 
 # 使用例
 
-```html
+```vue
 <template>
     <q-otp-input v-bind="otpProps" v-model="otp"></q-otp-input>
 </template>
-
 <script setup lang="ts">
-    import { ref } from "vue";
+import { ref } from "vue";
 
-    const otp = ref("");
+const otp = ref("");
 
-    const otpProps = ref<Record<string, any>>({
-        length: 6,
-        colGutter: "md", // 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-        allowPaste: true,
-        digitOnly: true,
-        realTime: true,
-        outlined: true,
-        filled: false,
-        standout: false,
-        dense: false,
-    });
+const otpProps = ref({
+    length: 6,
+    placeholder: "",
+
+    autofocus: true,
+    digitOnly: true,
+    allowPaste: true,
+    realTime: true,
+
+    type: "text",
+    readonly: false,
+    disable: false,
+    loading: false,
+    error: false,
+
+    outlined: true,
+    filled: false,
+    dense: false,
+    standout: false,
+    fontSize: "18px",
+});
 </script>
 ```

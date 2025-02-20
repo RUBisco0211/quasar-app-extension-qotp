@@ -1,6 +1,12 @@
 // app global css in SCSS form
+// app global css in SCSS form
 @import "variables.module";
 // quasar类自定义
+
+::view-transition-new(root),
+::view-transition-old(root) {
+    animation: none;
+}
 
 // 圆角
 .rounded-borders {
@@ -8,10 +14,20 @@
 }
 
 // 卡片
+
+.q-card,
+.q-table {
+    border-radius: $radius;
+}
+
+.q-card:not(.q-card--flat),
+.q-table:not(.q-table--flat) {
+    box-shadow: $shadow-common !important;
+}
+
 .q-card--flat,
 .q-table--flat {
-    box-shadow: $shadow-common !important;
-    border-radius: $radius;
+    box-shadow: none !important;
 }
 
 // 卡片内列表
@@ -24,6 +40,10 @@
     .q-expansion-item:last-child {
         border-radius: $radius-vertical-last !important;
     }
+}
+
+.q-card--flat > div {
+    border-radius: inherit !important;
 }
 
 // 按钮
@@ -187,9 +207,10 @@ pre {
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
+    background-color: transparent !important;
 }
 pre > code {
-    font-family: "Cascadia Code", "微软雅黑", "Consolas", monospace;
+    font-family: "Cascadia Code", "微软雅黑", "Consolas", monospace !important;
     font-size: 16px;
     margin: 0 !important;
     background-color: transparent !important;

@@ -20,26 +20,26 @@
                     options-dense
                 ></q-select>
                 <dark-toggle class="q-mx-sm"></dark-toggle>
-                <q-separator vertical></q-separator>
-                <q-btn
-                    icon="mdi-github"
+                <q-separator vertical inset></q-separator>
+                <q-icon
+                    name="mdi-github"
                     flat
+                    dense
                     round
                     class="q-ml-sm"
                     size="md"
-                    :href="githubUrl"
-                    target="_blank"
-                ></q-btn>
-                <q-btn
-                    icon="mdi-npm"
+                    @click="openURL(githubUrl)"
+                ></q-icon>
+                <q-icon
+                    name="mdi-npm"
                     flat
+                    dense
                     round
-                    class="q-mr-sm"
+                    class="q-mx-sm"
                     size="md"
-                    :href="npmUrl"
-                    target="_blank"
                     color="red"
-                ></q-btn>
+                    @click="openURL(npmUrl)"
+                ></q-icon>
             </q-toolbar>
         </q-header>
 
@@ -50,15 +50,16 @@
 </template>
 <script setup lang="ts">
 import DarkToggle from "src/components/common/DarkToggle.vue";
+import { openURL } from "quasar";
 
 const localeOptions = [
     {
         label: "English",
-        value: "en",
+        value: "en-US",
     },
     {
         label: "简体中文",
-        value: "zh",
+        value: "zh-CN",
     },
 ];
 
