@@ -6,7 +6,7 @@
 
 [npm: @rubisco0211/quasar-app-extension-qotp](https://www.npmjs.com/package/@rubisco0211/quasar-app-extension-qotp)
 
-[demo](https://rubisco0211.github.io/quasar-app-extension-qotp/#/)
+[demo](https://quasar-app-extension-qotp.vercel.app/#/)
 
 # 安装
 
