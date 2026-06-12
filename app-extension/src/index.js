@@ -1,16 +1,29 @@
 function extendConf(conf, api) {
     // register our boot file
+    conf.boot ??= [];
     conf.boot.push(
-        "~@rubisco0211/quasar-app-extension-qotp/src/boot/register.js"
+        "~@rubisco0211/quasar-app-extension-qotp/src/boot/register.js",
     );
 
     // make sure app extension files & ui package gets transpiled
 
-    if (api.hasVite !== true) {
+    if (
+        api.hasPackage("@quasar/app-webpack") &&
+        Array.isArray(conf.build?.transpileDependencies)
+    ) {
         conf.build.transpileDependencies.push(
-            /@rubisco0211\/quasar-app-extension-qotp[\\/]src/
+            /@rubisco0211\/quasar-app-extension-qotp[\\/]src/,
         );
     }
+
+    // if (
+    //     api.hasVite !== true &&
+    //     Array.isArray(conf.build.transpileDependencies)
+    // ) {
+    //     conf.build.transpileDependencies.push(
+    //         /@rubisco0211\/quasar-app-extension-qotp[\\/]src/,
+    //     );
+    // }
     // make sure the stylesheet goes through webpack to avoid SSR issues
     // conf.css.push("~quasar-ui-qotp/src/index.sass");
 }
@@ -22,9 +35,12 @@ export default function (api) {
     api.compatibleWith("vue", "^3.*");
     api.compatibleWith("quasar", "^2.*");
 
-    if (api.hasVite) {
-        api.compatibleWith("@quasar/app-vite", "^2.0.0");
-    } else if (api.hasWebpack) {
+    if (api.hasPackage("@quasar/app-vite")) {
+        api.compatibleWith(
+            "@quasar/app-vite",
+            ">=2.0.0 <3.0.0 || >=3.0.0-0 <4.0.0",
+        );
+    } else {
         api.compatibleWith("@quasar/app-webpack", "^3.4.0");
     }
 
