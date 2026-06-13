@@ -1,13 +1,23 @@
 {
     "name": "@rubisco0211/quasar-app-extension-qotp",
-    "version": "0.0.23",
+    "version": "0.0.24",
     "description": "A quasar component for inputting one-time passcode.",
     "author": "RUBisco0211 <1205456072@qq.com>",
     "license": "MIT",
     "type": "module",
     "private": false,
     "main": "src/index.js",
-    "types": "src/components/index.d.ts",
+    "exports": {
+        ".": "./src/index.js",
+        "./components": {
+            "types": "./src/components/index.d.ts",
+            "import": "./src/components/index.js",
+            "default": "./src/components/index.js"
+        },
+        "./src/index.js": "./src/index.js",
+        "./src/boot/register.js": "./src/boot/register.js",
+        "./package.json": "./package.json"
+    },
     "scripts": {
         "test": "echo \"No test specified\" && exit 0",
         "release": "npm publish --access=public && cd ../demo && quasar ext add @rubisco0211/qotp@latest"
