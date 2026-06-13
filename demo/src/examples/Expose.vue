@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { QInput } from "quasar";
-import { type QOtpInput } from "@rubisco0211/quasar-app-extension-qotp";
+import { type QOtpInput } from "@rubisco0211/quasar-app-extension-qotp/components";
 
 const otp = ref("");
 
