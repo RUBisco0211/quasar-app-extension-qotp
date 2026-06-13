@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+          cache-dependency-path: demo/package-lock.json
+
+      - name: Verify tag matches package version
+        shell: bash
+        run: |
+          package_version="$(node -p "require('./app-extension/package.json').version")"
+          tag_version="${GITHUB_REF_NAME#v}"
+
+          if [[ "$package_version" != "$tag_version" ]]; then
+            echo "Tag version ($tag_version) does not match package version ($package_version)."
+            exit 1
+          fi
+
+      - name: Install demo dependencies
+        run: npm ci
+        working-directory: demo
+
+      - name: Pack app extension
+        id: pack
+        shell: bash
+        run: |
+          tarball="$(npm pack ./app-extension --pack-destination "${RUNNER_TEMP}" --json | node -e "let input=''; process.stdin.on('data', chunk => input += chunk); process.stdin.on('end', () => console.log(JSON.parse(input)[0].filename))")"
+          echo "tarball=${RUNNER_TEMP}/${tarball}" >> "$GITHUB_OUTPUT"
+
+      - name: Install packed extension in demo
+        run: npm install --no-save "${{ steps.pack.outputs.tarball }}"
+        working-directory: demo
+
+      - name: Build demo
+        run: npm run build
+        working-directory: demo
+
+      - name: Publish package to npm
+        run: npm publish ./app-extension --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" --generate-notes --verify-tag
